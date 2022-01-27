@@ -9,6 +9,8 @@ RUN id
 # there is a built-in user "node" that comes from the very base Docker Node image
 # move test runner binary folder to the non-root's user home directory
 RUN mv /root/.cache /home/node/.cache
+# make sure cypress looks in the right place
+ENV CYPRESS_CACHE_FOLDER=/home/node/.cache/Cypress
 
 USER node
 # show user effective id and group - it should be non-zero
